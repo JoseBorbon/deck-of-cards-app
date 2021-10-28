@@ -12,10 +12,14 @@ class Deck extends Component {
   }
 
   async drawCard() {
+    if (this.state.remaining === 0) return;
     let response = await axios.get(this.state.url);
     //push object to drawnCards
     this.setState((st) => {
-      return { drawnCards: [...st.drawnCards, response.data] };
+      return {
+        drawnCards: [...st.drawnCards, response.data],
+        remaining: response.data.remaining,
+      };
     });
   }
 
@@ -36,11 +40,11 @@ class Deck extends Component {
 
   render() {
     const cards = this.state.drawnCards.map(
-      ({ cards: [{ image, value, suit }] }, idx) => (
+      ({ cards: [{ image, value, suit }] }) => (
         <Card
           imageUrl={image}
           altText={`${value} of ${suit}`}
-          zIdx={idx - 52}
+          zIdx={-this.state.remaining}
           key={uuid()}
         />
       )
