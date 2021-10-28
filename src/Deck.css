@@ -1,0 +1,15 @@
+div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.Deck-cards {
+  position: relative;
+  right: 65px;
+  top: 100px;
+}
+
+.Deck-cards > * {
+  position: absolute;
+}
