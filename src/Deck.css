@@ -1,15 +1,30 @@
-div {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-
 .Deck-cards {
-  position: relative;
-  right: 65px;
-  top: 100px;
+  margin-top: 50px;
 }
 
-.Deck-cards > * {
-  position: absolute;
+.Deck-title {
+  font-size: 3em;
+}
+
+.Deck-button {
+  font-size: 1em;
+  font-family: cursive;
+  color: white;
+  background-color: slateblue;
+  border-radius: 5px;
+  border: none;
+}
+
+.Deck-button:hover {
+  background-color: black;
+  transition: ease-in 0.5s;
+}
+
+.Deck-all-out {
+  color: white;
+  text-shadow: -1px 1px 0 #000, 4px 1px 0 #000, 4px -2px 0 #000,
+    -1px -1px 0 #000;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
