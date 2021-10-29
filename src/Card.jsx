@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import './Card.css';
 
 class Card extends Component {
+  constructor(props) {
+    super(props);
+    let angle = Math.random() * 90 - 45;
+    let xPos = Math.random() * 40 - 20;
+    let yPos = Math.random() * 40 - 20;
+    this._transform = `translate(${xPos}px, ${yPos}px) rotate(${angle}deg)`;
+  }
   render() {
     return (
-      <div>
-        <img
-          src={this.props.imageUrl}
-          alt={this.props.altText}
-          style={{
-            zIndex: this.props.zIdx,
-            transform:
-              this.props.zIdx % 2 === 0 ? 'rotate(20deg)' : 'rotate(50deg)',
-          }}
-        />
-      </div>
+      <img
+        className="Card"
+        src={this.props.imageUrl}
+        alt={this.props.altText}
+        style={{
+          transform: this._transform,
+        }}
+      />
     );
   }
 }
